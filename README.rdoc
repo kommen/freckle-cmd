@@ -20,13 +20,13 @@ FIX (describe your package)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install kommen-freckle
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 Dieter
+Copyright (c) 2008 Dieter Komendera
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

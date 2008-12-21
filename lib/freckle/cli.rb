@@ -27,9 +27,10 @@ module Freckle
         BANNER
         opts.separator ""
 
-        opts.on("-t", "--time=TIME") { |arg| options[:time] = arg } 
+        opts.on("-t", "--time=TIME") { |arg| options[:minutes] = arg } 
         opts.on("-p", "--project=PROJECT") { |arg| options[:project] = arg }
         opts.on("-d", "--description=DESCRIPTION") { |arg| options[:description] = arg }
+        opts.on("-D", "--date=DATE") { |arg| options[:date] = arg }
 
         opts.on("-h", "--help",
                 "Show this help message.") { stdout.puts opts; exit }
@@ -40,11 +41,11 @@ module Freckle
         end
       end
 
-      entry = FreckleGem::Entry.from_options(options.merge(:person => global_config['user']))
+      entry = FreckleGem::Entry.from_options(options.merge(:user => global_config['user']))
       http = Net::HTTP.new("#{global_config['subdomain']}.#{global_config['host']}", global_config['port'])
-      data = { :entries => [entry] }.to_json
-
-      response = http.post("/api/json/#{global_config['authtoken']}", "data=#{data}")
+      data = entry.to_json
+      header = {'Content-Type' => 'application/json'}
+      response = http.post("/api/entries?token=#{global_config['authtoken']}", data, header)
 
     end
 
