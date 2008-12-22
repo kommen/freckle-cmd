@@ -46,7 +46,12 @@ module Freckle
       data = entry.to_json
       header = {'Content-Type' => 'application/json'}
       response = http.post("/api/entries?token=#{global_config['authtoken']}", data, header)
-
+      case response
+      when Net::HTTPSuccess
+        puts response.body
+      else
+        puts "Failed to create entry."
+      end
     end
 
     def self.load_config(file = "~/.freckle.yml")
