@@ -3,6 +3,8 @@ require 'optparse'
 require 'net/http'
 require 'uri'
 require 'yaml'
+require 'activeresource'
+require 'freckle/app_config'
 require 'freckle-gem/entry'
 
 module Freckle
@@ -10,11 +12,6 @@ module Freckle
     def self.execute(stdout, arguments=[])
 
       options = {}
-      global_config = {
-        'host' => 'letsfreckle.com',
-        'port' => 80
-      }.merge(self.load_config)
-
       mandatory_options = %w(  )
 
       parser = OptionParser.new do |opts|
@@ -41,11 +38,8 @@ module Freckle
         end
       end
 
-      entry = FreckleGem::Entry.from_options(options.merge(:user => global_config['user']))
-      http = Net::HTTP.new("#{global_config['subdomain']}.#{global_config['host']}", global_config['port'])
-      data = entry.to_json
-      header = {'Content-Type' => 'application/json'}
-      response = http.post("/api/entries?token=#{global_config['authtoken']}", data, header)
+      entry = FreckleGem::Entry.from_options(options.merge(:user => Freckle::AppConfig.user))
+      response = send_request(entry.to_json)
       case response
       when Net::HTTPSuccess
         puts response.body
@@ -54,8 +48,9 @@ module Freckle
       end
     end
 
-    def self.load_config(file = "~/.freckle.yml")
-      File.open(File.expand_path(file)) { |yf| YAML::load( yf )['freckle'] }
+    def self.send_request(data)
+      http = Net::HTTP.new("#{Freckle::AppConfig.subdomain}.#{Freckle::AppConfig.host}", Freckle::AppConfig.port)
+      http.post("/api/entries.json?token=#{Freckle::AppConfig.authtoken}", data, { 'Content-Type' => 'application/json' })
     end
   end
 end
