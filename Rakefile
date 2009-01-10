@@ -10,6 +10,7 @@ $hoe = Hoe.new('freckle-gem', FreckleGem::VERSION) do |p|
   p.rubyforge_name       = p.name
   p.extra_deps         = [
     ['json', '>= 1.1.3'],
+    ['activeresource', '>= 2.2.2']
   ]
   p.extra_dev_deps = [
     ['newgem', ">= #{::Newgem::VERSION}"]

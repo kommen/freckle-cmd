@@ -1,17 +1,18 @@
 require 'rubygems'
 require 'optparse'
-require 'net/http'
-require 'uri'
 require 'yaml'
+require 'json'
 require 'activeresource'
 require 'freckle/app_config'
 require 'freckle-gem/entry'
+require 'freckle-gem/project'
 
 module Freckle
   class CLI
     def self.execute(stdout, arguments=[])
 
       options = {}
+      entry_attributes = {}
       mandatory_options = %w(  )
 
       parser = OptionParser.new do |opts|
@@ -24,10 +25,10 @@ module Freckle
         BANNER
         opts.separator ""
 
-        opts.on("-t", "--time=TIME") { |arg| options[:minutes] = arg } 
-        opts.on("-p", "--project=PROJECT") { |arg| options[:project] = arg }
-        opts.on("-d", "--description=DESCRIPTION") { |arg| options[:description] = arg }
-        opts.on("-D", "--date=DATE") { |arg| options[:date] = arg }
+        opts.on("-t", "--time=TIME") { |arg| entry_attributes[:minutes] = arg }
+        opts.on("-p", "--project=PROJECT") { |arg| options[:project_name] = arg }
+        opts.on("-d", "--description=DESCRIPTION") { |arg| entry_attributes[:description] = arg }
+        opts.on("-D", "--date=DATE") { |arg| entry_attributes[:date] = arg }
 
         opts.on("-h", "--help",
                 "Show this help message.") { stdout.puts opts; exit }
@@ -38,7 +39,8 @@ module Freckle
         end
       end
 
-      entry = FreckleGem::Entry.new(options.merge(:user => Freckle::AppConfig.user))
+      entry = FreckleGem::Entry.new(entry_attributes.merge(:user => Freckle::AppConfig.user))
+      entry.project_name = options[:project_name] if options[:project_name]
       entry.save
     end
   end
