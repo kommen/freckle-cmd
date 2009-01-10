@@ -4,8 +4,8 @@ require 'yaml'
 require 'json'
 require 'activeresource'
 require 'freckle/app_config'
-require 'freckle-gem/entry'
-require 'freckle-gem/project'
+require 'freckle/entry'
+require 'freckle/project'
 
 module Freckle
   class CLI
@@ -39,7 +39,7 @@ module Freckle
         end
       end
 
-      entry = FreckleGem::Entry.new(entry_attributes.merge(:user => Freckle::AppConfig.user))
+      entry = Freckle::Entry.new(entry_attributes.merge(:user => Freckle::AppConfig.user))
       entry.project_name = options[:project_name] if options[:project_name]
       entry.save
     end

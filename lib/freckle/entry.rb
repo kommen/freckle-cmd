@@ -1,5 +1,5 @@
 
-module FreckleGem
+module Freckle
 
   class Entry < ActiveResource::Base
     self.site = "http://#{Freckle::AppConfig.subdomain}.#{Freckle::AppConfig.host}:#{Freckle::AppConfig.port}/api/"

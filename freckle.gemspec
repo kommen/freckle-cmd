@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{freckle-gem}
+  s.name = %q{freckle}
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.post_install_message = %q{PostInstall.txt}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{freckle-gem}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{FIX (describe your package)}
   s.test_files = ["test/test_=freckle_cli.rb", "test/test_freckle-gem.rb", "test/test_helper.rb"]

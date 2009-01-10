@@ -1,3 +1,3 @@
 require 'stringio'
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/freckle-gem'
+require File.dirname(__FILE__) + '/../lib/freckle'

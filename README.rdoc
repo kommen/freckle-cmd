@@ -1,4 +1,4 @@
-= freckle-gem
+= freckle
 
 * FIX (url)
 
@@ -26,7 +26,7 @@ sudo gem install kommen-freckle
 
 (The MIT License)
 
-Copyright (c) 2008 Dieter Komendera
+Copyright (c) 2008, 2009 Dieter Komendera
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
