@@ -1,7 +1,16 @@
 
-For more information on freckle-gem, see http://freckle-gem.rubyforge.org
+To use the command line tool which comes with this gem, place a file .freckle.yml with following content into your home directory:
 
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
+freckle:
+  subdomain: <your freckle subodmain>
+  authtoken: <your freckle api auth token>
+  user: <your freckle user name>
 
+Then you can start tracking time from your command line:
+
+  freckle -t 2h -p ProjectX -d "Implementing a command line tool"
+
+For more information you can run
+
+  freckle -h
 
