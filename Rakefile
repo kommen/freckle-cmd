@@ -1,9 +1,9 @@
 %w[rubygems rake rake/clean fileutils newgem rubigen].each { |f| require f }
-require File.dirname(__FILE__) + '/lib/freckle-gem'
+require File.dirname(__FILE__) + '/lib/freckle'
 
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.new('freckle-gem', FreckleGem::VERSION) do |p|
+$hoe = Hoe.new('freckle', Freckle::VERSION) do |p|
   p.developer('Dieter Komendera', 'dieter@abloom.at')
   p.changes              = p.paragraphs_of("History.txt", 0..1).join("\n\n")
   p.post_install_message = 'PostInstall.txt'

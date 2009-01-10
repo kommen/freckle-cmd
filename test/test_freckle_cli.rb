@@ -1,10 +1,10 @@
 require File.join(File.dirname(__FILE__), "test_helper.rb")
-require '=freckle/cli'
+require 'freckle/cli'
 
-class Test=freckleCli < Test::Unit::TestCase
+class TestFreckleCli < Test::Unit::TestCase
   def setup
     @stdout_io = StringIO.new
-    =freckle::CLI.execute(@stdout_io, [])
+    Freckle::CLI.execute(@stdout_io, [])
     @stdout_io.rewind
     @stdout = @stdout_io.read
   end
