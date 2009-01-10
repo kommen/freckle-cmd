@@ -4,12 +4,12 @@ PostInstall.txt
 README.rdoc
 Rakefile
 bin/freckle
-lib/freckle/cli.rb
+freckle-gem.gemspec
 lib/freckle-gem.rb
 lib/freckle-gem/entry.rb
-script/console
-script/destroy
-script/generate
+lib/freckle-gem/project.rb
+lib/freckle/app_config.rb
+lib/freckle/cli.rb
 test/test_=freckle_cli.rb
 test/test_freckle-gem.rb
 test/test_helper.rb

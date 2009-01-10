@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dieter Komendera"]
-  s.date = %q{2008-12-07}
+  s.date = %q{2009-01-10}
   s.default_executable = %q{freckle}
   s.description = %q{FIX (describe your package)}
   s.email = ["dieter@abloom.at"]
@@ -29,16 +29,19 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<json>, [">= 1.1.3"])
-      s.add_development_dependency(%q<newgem>, [">= 1.1.0"])
+      s.add_runtime_dependency(%q<activeresource>, [">= 2.2.2"])
+      s.add_development_dependency(%q<newgem>, [">= 1.2.0"])
       s.add_development_dependency(%q<hoe>, [">= 1.8.0"])
     else
       s.add_dependency(%q<json>, [">= 1.1.3"])
-      s.add_dependency(%q<newgem>, [">= 1.1.0"])
+      s.add_dependency(%q<activeresource>, [">= 2.2.2"])
+      s.add_dependency(%q<newgem>, [">= 1.2.0"])
       s.add_dependency(%q<hoe>, [">= 1.8.0"])
     end
   else
     s.add_dependency(%q<json>, [">= 1.1.3"])
-    s.add_dependency(%q<newgem>, [">= 1.1.0"])
+    s.add_dependency(%q<activeresource>, [">= 2.2.2"])
+    s.add_dependency(%q<newgem>, [">= 1.2.0"])
     s.add_dependency(%q<hoe>, [">= 1.8.0"])
   end
 end
