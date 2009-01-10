@@ -38,19 +38,8 @@ module Freckle
         end
       end
 
-      entry = FreckleGem::Entry.from_options(options.merge(:user => Freckle::AppConfig.user))
-      response = send_request(entry.to_json)
-      case response
-      when Net::HTTPSuccess
-        puts response.body
-      else
-        puts "Failed to create entry."
-      end
-    end
-
-    def self.send_request(data)
-      http = Net::HTTP.new("#{Freckle::AppConfig.subdomain}.#{Freckle::AppConfig.host}", Freckle::AppConfig.port)
-      http.post("/api/entries.json?token=#{Freckle::AppConfig.authtoken}", data, { 'Content-Type' => 'application/json' })
+      entry = FreckleGem::Entry.new(options.merge(:user => Freckle::AppConfig.user))
+      entry.save
     end
   end
 end
