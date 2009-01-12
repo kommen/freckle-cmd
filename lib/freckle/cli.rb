@@ -41,7 +41,12 @@ module Freckle
 
       entry = Freckle::Entry.new(entry_attributes.merge(:user => Freckle::AppConfig.user))
       entry.project_name = options[:project_name] if options[:project_name]
-      entry.save
+      if entry.save
+        puts "time entry saved"
+      else
+        puts "failed to save entry."
+        entry.errors.full_messages.each { |msg| puts msg }
+      end
     end
   end
 end
