@@ -46,7 +46,6 @@ class Freckle::ProjectTest < Test::Unit::TestCase
 
     ['2ah', '1x0', '50)min'].each do |min|
       entry = Freckle::Entry.new(:minutes => min)
-      puts min
       assert !entry.valid?
     end
   end
