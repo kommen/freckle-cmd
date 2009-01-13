@@ -13,5 +13,7 @@ lib/freckle/project.rb
 script/console
 script/destroy
 script/generate
+test/entry_test.rb
+test/project_test.rb
 test/test_freckle_cli.rb
 test/test_helper.rb
