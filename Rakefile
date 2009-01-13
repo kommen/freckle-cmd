@@ -13,7 +13,8 @@ $hoe = Hoe.new('freckle', Freckle::VERSION) do |p|
     ['activeresource', '>= 2.2.2']
   ]
   p.extra_dev_deps = [
-    ['newgem', ">= #{::Newgem::VERSION}"]
+    ['newgem', ">= #{::Newgem::VERSION}"],
+    ['activesupport', '>= 2.2.2']
   ]
 
   p.clean_globs |= %w[**/.DS_Store tmp *.log]
