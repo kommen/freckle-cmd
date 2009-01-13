@@ -5,7 +5,7 @@ PostInstall.txt
 README.rdoc
 Rakefile
 bin/freckle
-freckle.gemspec
+freckle-cmd.gemspec
 lib/freckle.rb
 lib/freckle/app_config.rb
 lib/freckle/cli.rb
