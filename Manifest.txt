@@ -1,4 +1,5 @@
 History.txt
+MIT-LICENSE
 Manifest.txt
 PostInstall.txt
 README.rdoc
