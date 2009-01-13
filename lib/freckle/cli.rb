@@ -13,7 +13,7 @@ module Freckle
 
       options = {}
       entry_attributes = {}
-      mandatory_options = %w(  )
+      mandatory_options = %w( t )
 
       parser = OptionParser.new do |opts|
         opts.banner = <<-BANNER.gsub(/^          /,'')
@@ -25,10 +25,10 @@ module Freckle
         BANNER
         opts.separator ""
 
-        opts.on("-t", "--time=TIME") { |arg| entry_attributes[:minutes] = arg }
+        opts.on("-t", "--time=TIME", "required") { |arg| entry_attributes[:minutes] = arg }
         opts.on("-p", "--project=PROJECT") { |arg| options[:project_name] = arg }
         opts.on("-d", "--description=DESCRIPTION") { |arg| entry_attributes[:description] = arg }
-        opts.on("-D", "--date=DATE") { |arg| entry_attributes[:date] = arg }
+        opts.on("-D", "--date=DATE", "default: Today") { |arg| entry_attributes[:date] = arg }
 
         opts.on("-h", "--help",
                 "Show this help message.") { stdout.puts opts; exit }
