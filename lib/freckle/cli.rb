@@ -13,7 +13,6 @@ module Freckle
 
       options = {}
       entry_attributes = {}
-      mandatory_options = %w( t )
 
       parser = OptionParser.new do |opts|
         opts.banner = <<-BANNER.gsub(/^          /,'')
@@ -33,10 +32,6 @@ module Freckle
         opts.on("-h", "--help",
                 "Show this help message.") { stdout.puts opts; exit }
         opts.parse!(arguments)
-
-        if mandatory_options && mandatory_options.find { |option| options[option.to_sym].nil? }
-          stdout.puts opts; exit
-        end
       end
 
       entry = Freckle::Entry.new(entry_attributes.merge(:user => Freckle::AppConfig.user))
