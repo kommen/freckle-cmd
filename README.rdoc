@@ -1,10 +1,10 @@
 = freckle
 
-http://letsfreckle.com/
+http://letsfreckle.com
 
 == DESCRIPTION:
 
-Command line tool to track time with freckle (http://letsfreckle.com/)
+Command line tool to track time with freckle (http://letsfreckle.com)
 
 == FEATURES/PROBLEMS:
 
@@ -23,10 +23,11 @@ Command line tool to track time with freckle (http://letsfreckle.com/)
 sudo gem install kommen-freckle --source http://gems.github.com
 
 Place a file .freckle.yml with following content into your home directory:
-freckle:
-  subdomain: <your freckle subodmain>
-  authtoken: <your freckle api auth token>
-  user: <your freckle user name>
+
+  freckle:
+    subdomain: <your freckle subodmain>
+    authtoken: <your freckle api auth token>
+    user: <your freckle user name>
 
 == LICENSE:
 
