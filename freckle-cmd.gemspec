@@ -6,16 +6,32 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dieter Komendera"]
-  s.date = %q{2009-01-13}
+  s.date = %q{2009-01-16}
   s.default_executable = %q{freckle}
   s.description = %q{Command line tool to track time with freckle (http://letsfreckle.com)}
   s.email = ["dieter@abloom.at"]
   s.executables = ["freckle"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt", "README.rdoc"]
-  s.files = ["History.txt", "MIT-LICENSE", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "bin/freckle", "freckle.gemspec", "lib/freckle.rb", "lib/freckle/app_config.rb", "lib/freckle/cli.rb", "lib/freckle/entry.rb", "lib/freckle/project.rb", "script/console", "script/destroy", "script/generate", "test/entry_test.rb", "test/project_test.rb", "test/test_freckle_cli.rb", "test/test_helper.rb"]
+  s.files = ["History.txt", "MIT-LICENSE", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "bin/freckle", "freckle-cmd.gemspec", "lib/freckle.rb", "lib/freckle/app_config.rb", "lib/freckle/cli.rb", "lib/freckle/entry.rb", "lib/freckle/project.rb", "script/console", "script/destroy", "script/generate", "test/entry_test.rb", "test/project_test.rb", "test/test_freckle_cli.rb", "test/test_helper.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://letsfreckle.com}
-  s.post_install_message = %q{PostInstall.txt}
+  s.post_install_message = %q{
+To use the command line tool which comes with this gem, place a file .freckle.yml with following content into your home directory:
+
+freckle:
+  subdomain: <your freckle subodmain>
+  authtoken: <your freckle api auth token>
+  user: <your freckle user name>
+
+Then you can start tracking time from your command line:
+
+  freckle -t 2h -p ProjectX -d "Implementing a command line tool"
+
+For more information you can run
+
+  freckle -h
+
+}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{freckle-cmd}

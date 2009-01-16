@@ -20,7 +20,7 @@ Command line tool to track time with freckle (http://letsfreckle.com)
 
 == INSTALL:
 
-sudo gem install kommen-freckle --source http://gems.github.com
+sudo gem install kommen-freckle-cmd --source http://gems.github.com
 
 Place a file .freckle.yml with following content into your home directory:
 

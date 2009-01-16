@@ -6,7 +6,7 @@ require File.dirname(__FILE__) + '/lib/freckle'
 $hoe = Hoe.new('freckle-cmd', Freckle::VERSION) do |p|
   p.developer('Dieter Komendera', 'dieter@abloom.at')
   p.changes              = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  p.post_install_message = 'PostInstall.txt'
+  p.post_install_message = File.open(File.dirname(__FILE__) + "/PostInstall.txt").read rescue ""
   p.rubyforge_name       = p.name
 
   p.extra_deps         = [
